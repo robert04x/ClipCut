@@ -29,26 +29,36 @@ const JoinForm = () => {
   });
 
 const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  e.preventDefault();
+  setLoading(true);
 
-    const scriptUrl = "https://script.google.com/macros/s/AKfycbzRTL-WfAt0gbfjNOiK9F3vgAgVP1QjdPjkx6auPOc_Lm-1b-YZasScJLo9A-srgcb_Gg/exec"; 
-    const formData = new FormData(e.currentTarget);
+  // Access the environment variable
+  const scriptUrl = import.meta.env.VITE_GOOGLE_SHEET_URL; 
 
-    try {
-      // We use a simple POST. 
-      // Note: If you face CORS issues, use 'mode: "no-cors"'
-      await fetch(scriptUrl, {
-        method: 'POST',
-        body: formData,
-      });
-      
-      alert("Datele au fost trimise cu succes!");
-      (e.target as HTMLFormElement).reset();
-    } catch (error) {
-      console.error("Error:", error);
-      alert("A apărut o eroare la trimitere.");
-    }
-  };
+  if (!scriptUrl) {
+    console.error("Environment variable VITE_GOOGLE_SHEET_URL is missing!");
+    setLoading(false);
+    return;
+  }
+
+  const formData = new FormData(e.currentTarget);
+
+  try {
+    await fetch(scriptUrl, {
+      method: 'POST',
+      body: formData,
+      mode: 'no-cors', // Essential for redirecting Google Scripts
+    });
+    
+    alert("Datele au fost trimise!");
+    (e.target as HTMLFormElement).reset();
+  } catch (error) {
+    console.error("Error:", error);
+    alert("Eroare la trimitere.");
+  } finally {
+    setLoading(false);
+  }
+};
 
   const judet = [
     'Alba', 'Arad', 'Argeș', 'Bacău', 'Bihor', 'Bistrița-Năsăud', 'Botoșani', 'Brașov',
