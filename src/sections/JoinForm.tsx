@@ -65,7 +65,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 };
 
 
-  const counties = [
+  const judet = [
     'Alba', 'Arad', 'Argeș', 'Bacău', 'Bihor', 'Bistrița-Năsăud', 'Botoșani', 'Brașov',
     'Brăila', 'București', 'Buzău', 'Caraș-Severin', 'Călărași', 'Cluj', 'Constanța',
     'Covasna', 'Dâmbovița', 'Dolj', 'Galați', 'Giurgiu', 'Gorj', 'Harghita', 'Hunedoara',
@@ -74,7 +74,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     'Vaslui', 'Vâlcea', 'Vrancea'
   ];
 
-  const cities = [
+  const oras = [
     'București', 'Cluj-Napoca', 'Timișoara', 'Iași', 'Constanța', 'Brașov', 'Galați',
     'Craiova', 'Ploiești', 'Oradea', 'Brăila', 'Arad', 'Sibiu', 'Bacău', 'Târgu Mureș',
     'Baia Mare', 'Buzău', 'Botoșani', 'Satu Mare', 'Râmnicu Vâlcea', 'Drobeta-Turnu Severin',
@@ -169,15 +169,15 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             {/* Full Name */}
             <div className="space-y-1.5 sm:space-y-2">
-              <Label htmlFor="fullName" className="text-white/80 text-sm sm:text-base">
+              <Label htmlFor="numeComplet" className="text-white/80 text-sm sm:text-base">
                 Nume Complet
               </Label>
               <Input
-                id="fullName"
+                id="numeComplet"
                 placeholder="Popescu Ion"
-                value={formData.fullName}
+                value={formData.numeComplet}
                 onChange={(e) =>
-                  setFormData({ ...formData, fullName: e.target.value })
+                  setFormData({ ...formData, numeComplet: e.target.value })
                 }
                 onFocus={handleInputFocus}
                 onBlur={handleInputBlur}
@@ -206,16 +206,16 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
             {/* Phone */}
             <div className="space-y-1.5 sm:space-y-2">
-              <Label htmlFor="phone" className="text-white/80 text-sm sm:text-base">
+              <Label htmlFor="numarTelefon" className="text-white/80 text-sm sm:text-base">
                 Număr de Telefon
               </Label>
               <Input
-                id="phone"
+                id="numarTelefon"
                 type="tel"
                 placeholder="07xxxxxxxx"
-                value={formData.phone}
+                value={formData.numarTelefon}
                 onChange={(e) =>
-                  setFormData({ ...formData, phone: e.target.value })
+                  setFormData({ ...formData, numarTelefon: e.target.value })
                 }
                 onFocus={handleInputFocus}
                 onBlur={handleInputBlur}
@@ -225,15 +225,15 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
             {/* Location */}
             <div className="space-y-1.5 sm:space-y-2">
-              <Label htmlFor="location" className="text-white/80 text-sm sm:text-base">
+              <Label htmlFor="locatiaFrizeriei" className="text-white/80 text-sm sm:text-base">
                 Locația Frizeriei
               </Label>
               <Input
-                id="location"
+                id="locatiaFrizeriei"
                 placeholder="Str. Exemplu nr. 10"
-                value={formData.location}
+                value={formData.locatiaFrizeriei}
                 onChange={(e) =>
-                  setFormData({ ...formData, location: e.target.value })
+                  setFormData({ ...formData, locatiaFrizeriei: e.target.value })
                 }
                 onFocus={handleInputFocus}
                 onBlur={handleInputBlur}
@@ -243,23 +243,23 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
             {/* City */}
             <div className="space-y-1.5 sm:space-y-2">
-              <Label htmlFor="city" className="text-white/80 text-sm sm:text-base">
+              <Label htmlFor="oras" className="text-white/80 text-sm sm:text-base">
                 Oraș
               </Label>
               <Select
-                value={formData.city}
+                value={formData.oras}
                 onValueChange={(value) =>
-                  setFormData({ ...formData, city: value })
+                  setFormData({ ...formData, oras: value })
                 }
               >
                 <SelectTrigger className="bg-black/50 border-white/20 text-white hover:border-white/40 transition-colors text-sm sm:text-base h-10 sm:h-12">
                   <SelectValue placeholder="Selectează orașul" />
                 </SelectTrigger>
                 <SelectContent className="bg-black border-white/20 max-h-60">
-                  {cities.map((city) => (
+                  {cities.map((oras) => (
                     <SelectItem
-                      key={city}
-                      value={city}
+                      key={oras}
+                      value={oras}
                       className="text-white hover:bg-white/10 text-sm"
                     >
                       {city}
@@ -271,26 +271,26 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
             {/* County */}
             <div className="space-y-1.5 sm:space-y-2">
-              <Label htmlFor="county" className="text-white/80 text-sm sm:text-base">
+              <Label htmlFor="judet" className="text-white/80 text-sm sm:text-base">
                 Județ
               </Label>
               <Select
-                value={formData.county}
+                value={formData.judet}
                 onValueChange={(value) =>
-                  setFormData({ ...formData, county: value })
+                  setFormData({ ...formData, judet: value })
                 }
               >
                 <SelectTrigger className="bg-black/50 border-white/20 text-white hover:border-white/40 transition-colors text-sm sm:text-base h-10 sm:h-12">
                   <SelectValue placeholder="Selectează județul" />
                 </SelectTrigger>
                 <SelectContent className="bg-black border-white/20 max-h-60">
-                  {counties.map((county) => (
+                  {judet.map((judet) => (
                     <SelectItem
-                      key={county}
-                      value={county}
+                      key={judet}
+                      value={judet}
                       className="text-white hover:bg-white/10 text-sm"
                     >
-                      {county}
+                      {judet}
                     </SelectItem>
                   ))}
                 </SelectContent>
