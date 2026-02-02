@@ -251,13 +251,13 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                   <SelectValue placeholder="Selectează orașul" />
                 </SelectTrigger>
                 <SelectContent className="bg-black border-white/20 max-h-60">
-                  {oras.map((oras) => (
+                  {oras.map((o) => (
                     <SelectItem
-                      key={oras}
-                      value={oras}
+                      key={o}
+                      value={o}
                       className="text-white hover:bg-white/10 text-sm"
                     >
-                      {oras}
+                      {o}
                     </SelectItem>
                   ))}
                 </SelectContent>
@@ -279,13 +279,13 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                   <SelectValue placeholder="Selectează județul" />
                 </SelectTrigger>
                 <SelectContent className="bg-black border-white/20 max-h-60">
-                  {judet.map((judet) => (
+                  {judet.map((j) => (
                     <SelectItem
-                      key={judet}
-                      value={judet}
+                      key={j}
+                      value={j}
                       className="text-white hover:bg-white/10 text-sm"
                     >
-                      {judet}
+                      {j}
                     </SelectItem>
                   ))}
                 </SelectContent>
