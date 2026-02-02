@@ -23,7 +23,7 @@ const JoinForm = () => {
     numeComplet: "",
     email: "",
     numarTelefon: "",
-    locatiaFrizeriei: "",
+    locatieFrizerie: "",
     oras: "",
     judet: "",
   });
@@ -184,6 +184,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
               </Label>
               <Input
                 id="email"
+                name="email"
                 type="email"
                 placeholder="ion.popescu@exemplu.com"
                 value={formData.email}
@@ -203,6 +204,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
               </Label>
               <Input
                 id="numarTelefon"
+                name="numarTelefon"
                 type="tel"
                 placeholder="07xxxxxxxx"
                 value={formData.numarTelefon}
@@ -217,15 +219,16 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
             {/* Location */}
             <div className="space-y-1.5 sm:space-y-2">
-              <Label htmlFor="locatiaFrizeriei" className="text-white/80 text-sm sm:text-base">
+              <Label htmlFor="locatieFrizerie" className="text-white/80 text-sm sm:text-base">
                 Locația Frizeriei
               </Label>
               <Input
-                id="locatiaFrizeriei"
+                id="locatieFrizerie"
+                name=""
                 placeholder="Str. Exemplu nr. 10"
                 value={formData.locatiaFrizeriei}
                 onChange={(e) =>
-                  setFormData({ ...formData, locatiaFrizeriei: e.target.value })
+                  setFormData({ ...formData, locatieFrizerie: e.target.value })
                 }
                 onFocus={handleInputFocus}
                 onBlur={handleInputBlur}
