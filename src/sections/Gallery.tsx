@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import images from "./public/";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,23 +13,23 @@ const Gallery = () => {
 
   const images = [
     {
-      src: '/public/foto1.jpeg',
+      src: './foto1.jpeg',
       alt: 'Barber styling hair',
     },
     {
-      src: '/public/foto2.jpeg',
+      src: './foto2.jpeg',
       alt: 'Classic haircut',
     },
     {
-      src: '/public/foto3.jpeg',
+      src: './foto3.jpeg',
       alt: 'Beard trim',
     },
     {
-      src: '/public/foto4.jpeg',
+      src: './foto4.jpeg',
       alt: 'Hair styling',
     },
     {
-      src: '/public/foto5.jpeg',
+      src: './foto5.jpeg',
       alt: 'Modern haircut',
     },
   ];
