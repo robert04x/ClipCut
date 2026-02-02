@@ -30,14 +30,12 @@ const JoinForm = () => {
 
 const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
-  setLoading(true);
 
   // Access the environment variable
   const scriptUrl = import.meta.env.VITE_GOOGLE_SHEET_URL; 
 
   if (!scriptUrl) {
     console.error("Environment variable VITE_GOOGLE_SHEET_URL is missing!");
-    setLoading(false);
     return;
   }
 
@@ -55,8 +53,6 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   } catch (error) {
     console.error("Error:", error);
     alert("Eroare la trimitere.");
-  } finally {
-    setLoading(false);
   }
 };
 
