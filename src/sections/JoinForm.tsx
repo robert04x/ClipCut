@@ -262,7 +262,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                       value={oras}
                       className="text-white hover:bg-white/10 text-sm"
                     >
-                      {city}
+                      {oras}
                     </SelectItem>
                   ))}
                 </SelectContent>
