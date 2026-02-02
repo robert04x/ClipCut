@@ -241,6 +241,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
               <Label htmlFor="oras" className="text-white/80 text-sm sm:text-base">
                 Oraș
               </Label>
+              <input type="hidden" name="oras" value={formData.oras} />
               <Select
                 value={formData.oras}
                 onValueChange={(value) =>
@@ -269,6 +270,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
               <Label htmlFor="judet" className="text-white/80 text-sm sm:text-base">
                 Județ
               </Label>
+              <input type="hidden" name="judet" value={formData.judet} />
               <Select
                 value={formData.judet}
                 onValueChange={(value) =>
