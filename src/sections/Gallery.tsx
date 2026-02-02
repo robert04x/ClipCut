@@ -13,23 +13,23 @@ const Gallery = () => {
 
   const images = [
     {
-      src: './foto1.jpeg',
+      src: 'src/foto1.jpeg',
       alt: 'Barber styling hair',
     },
     {
-      src: './foto2.jpeg',
+      src: 'src/foto2.jpeg',
       alt: 'Classic haircut',
     },
     {
-      src: './foto3.jpeg',
+      src: 'src/foto3.jpeg',
       alt: 'Beard trim',
     },
     {
-      src: './foto4.jpeg',
+      src: 'src/foto4.jpeg',
       alt: 'Hair styling',
     },
     {
-      src: './foto5.jpeg',
+      src: 'src/foto5.jpeg',
       alt: 'Modern haircut',
     },
   ];
