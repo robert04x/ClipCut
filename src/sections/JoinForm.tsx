@@ -43,12 +43,12 @@ const JoinForm = () => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      numeComplet,
-      email,
-      numarTelefon,
-      locatiaFrizeriei,
-      oras,
-      judet,
+      numeComplet: "",
+      email: "",
+      numarTelefon: "",
+      locatiaFrizeriei: "",
+      oras: "",
+      judet: "",
     }),
   });
 
