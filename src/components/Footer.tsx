@@ -63,7 +63,7 @@ const Footer = () => {
             />
           </div>
           <span className="text-white font-semibold text-lg sm:text-xl">
-            ClipCut Membership
+            ClipCut
           </span>
         </div>
 
