@@ -30,7 +30,6 @@ const JoinForm = () => {
 
 const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true);
 
     const scriptUrl = "https://script.google.com/macros/s/AKfycbzRTL-WfAt0gbfjNOiK9F3vgAgVP1QjdPjkx6auPOc_Lm-1b-YZasScJLo9A-srgcb_Gg/exec"; 
     const formData = new FormData(e.currentTarget);
@@ -48,8 +47,6 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     } catch (error) {
       console.error("Error:", error);
       alert("A apărut o eroare la trimitere.");
-    } finally {
-      setLoading(false);
     }
   };
 
