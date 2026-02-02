@@ -254,7 +254,6 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                   {oras.map((oras) => (
                     <SelectItem
                       key={oras}
-                      name="oras"
                       value={oras}
                       className="text-white hover:bg-white/10 text-sm"
                     >
@@ -283,7 +282,6 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                   {judet.map((judet) => (
                     <SelectItem
                       key={judet}
-                      name="judet"
                       value={judet}
                       className="text-white hover:bg-white/10 text-sm"
                     >
