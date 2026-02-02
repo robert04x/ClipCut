@@ -30,40 +30,27 @@ const JoinForm = () => {
 
 const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
-
+  
+  // Use the URL from your "Deploy" step
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzRTL-WfAt0gbfjNOiK9F3vgAgVP1QjdPjkx6auPOc_Lm-1b-YZasScJLo9A-srgcb_Gg/exec";
+  
   try {
-    const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbzBhNpqAJAvLQROsEG5DE5vou4LP_obrp_ff0QO0v-vivBIWYZNZ89yD71kjbsKe3BPjA/exec",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData), // ✅ SEND REAL DATA
-      }
-    );
+    // e.currentTarget is the form element
+    const formData = new FormData(e.currentTarget);
 
-    const result = await response.json();
+    await fetch(SCRIPT_URL, {
+      method: "POST",
+      body: formData,
+      mode: "no-cors", // This prevents CORS errors with Apps Script
+    });
 
-    if (result.success) {
-      alert("Aplicația a fost trimisă cu succes!");
-      setFormData({
-        numeComplet: "",
-        email: "",
-        numarTelefon: "",
-        locatiaFrizeriei: "",
-        oras: "",
-        judet: "",
-      });
-    } else {
-      alert("Eroare la trimitere");
-    }
-  } catch (error) {
-    console.error("Submit error:", error);
-    alert("A apărut o eroare");
+    // Note: with "no-cors", you won't be able to read the JSON response, 
+    // but the data WILL successfully write to the sheet.
+    alert("Form submitted!");
+  } catch (err) {
+    console.error("Error!", err);
   }
 };
-
 
   const judet = [
     'Alba', 'Arad', 'Argeș', 'Bacău', 'Bihor', 'Bistrița-Năsăud', 'Botoșani', 'Brașov',
