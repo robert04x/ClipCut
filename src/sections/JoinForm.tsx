@@ -20,12 +20,12 @@ const JoinForm = () => {
   const formRef = useRef<HTMLFormElement>(null);
 
   const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    phone: '',
-    location: '',
-    city: '',
-    county: '',
+    numeComplet: "",
+    email: "",
+    numarTelefon: "",
+    locatiaFrizeriei: "",
+    oras: "",
+    judet: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -33,6 +33,33 @@ const JoinForm = () => {
     console.log('Form submitted:', formData);
     alert('Aplicația a fost trimisă cu succes!');
   };
+
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const response = await fetch("YOUR_WEB_APP_URL", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      numeComplet,
+      email,
+      numarTelefon,
+      locatiaFrizeriei,
+      oras,
+      judet,
+    }),
+  });
+
+  const result = await response.json();
+
+  if (result.success) {
+    alert("Datele au fost trimise!");
+  } else {
+    alert("Eroare la trimitere");
+  }
+};
 
   const counties = [
     'Alba', 'Arad', 'Argeș', 'Bacău', 'Bihor', 'Bistrița-Năsăud', 'Botoșani', 'Brașov',
