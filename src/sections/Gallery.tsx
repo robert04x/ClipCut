@@ -13,23 +13,23 @@ const Gallery = () => {
 
   const images = [
     {
-      src: 'https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=400&h=500&fit=crop',
+      src: './src/2025-12-06 (3).jpg',
       alt: 'Barber styling hair',
     },
     {
-      src: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=400&h=500&fit=crop',
+      src: './src/2025-12-06 (4).jpg',
       alt: 'Classic haircut',
     },
     {
-      src: 'https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=400&h=500&fit=crop',
+      src: './src/2025-12-06 (2).jpg',
       alt: 'Beard trim',
     },
     {
-      src: 'https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?w=400&h=500&fit=crop',
+      src: './src/2025-12-06 (1).jpg',
       alt: 'Hair styling',
     },
     {
-      src: 'https://images.unsplash.com/photo-1605497788044-5a32c7078486?w=400&h=500&fit=crop',
+      src: './src/2025-12-06.jpg',
       alt: 'Modern haircut',
     },
   ];
