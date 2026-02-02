@@ -64,7 +64,7 @@ const Navbar = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
             <span className="text-white font-semibold text-sm sm:text-base md:text-lg tracking-tight hidden sm:block group-hover:text-shadow-glow transition-all duration-300">
-              ClipCut Membership
+              ClipCut
             </span>
           </a>
 
