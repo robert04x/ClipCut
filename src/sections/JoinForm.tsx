@@ -256,7 +256,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                   <SelectValue placeholder="Selectează orașul" />
                 </SelectTrigger>
                 <SelectContent className="bg-black border-white/20 max-h-60">
-                  {cities.map((oras) => (
+                  {oras.map((oras) => (
                     <SelectItem
                       key={oras}
                       value={oras}
