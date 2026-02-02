@@ -37,7 +37,7 @@ const JoinForm = () => {
   const handleSubmit = async (e) => {
   e.preventDefault();
 
-  const response = await fetch("YOUR_WEB_APP_URL", {
+  const response = await fetch("https://clipcut2.netlify.app/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
