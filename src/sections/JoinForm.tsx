@@ -165,6 +165,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
               </Label>
               <Input
                 id="numeComplet"
+                name="numeComplet"
                 placeholder="Popescu Ion"
                 value={formData.numeComplet}
                 onChange={(e) =>
