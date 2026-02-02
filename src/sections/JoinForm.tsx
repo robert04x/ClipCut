@@ -28,38 +28,42 @@ const JoinForm = () => {
     judet: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Aplicația a fost trimisă cu succes!');
-  };
-
-  const handleSubmit = async (e) => {
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
 
-  const response = await fetch("https://script.google.com/macros/s/AKfycbzBhNpqAJAvLQROsEG5DE5vou4LP_obrp_ff0QO0v-vivBIWYZNZ89yD71kjbsKe3BPjA/exec", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      numeComplet: "",
-      email: "",
-      numarTelefon: "",
-      locatiaFrizeriei: "",
-      oras: "",
-      judet: "",
-    }),
-  });
+  try {
+    const response = await fetch(
+      "https://script.google.com/macros/s/AKfycbzBhNpqAJAvLQROsEG5DE5vou4LP_obrp_ff0QO0v-vivBIWYZNZ89yD71kjbsKe3BPjA/exec",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData), // ✅ SEND REAL DATA
+      }
+    );
 
-  const result = await response.json();
+    const result = await response.json();
 
-  if (result.success) {
-    alert("Datele au fost trimise!");
-  } else {
-    alert("Eroare la trimitere");
+    if (result.success) {
+      alert("Aplicația a fost trimisă cu succes!");
+      setFormData({
+        numeComplet: "",
+        email: "",
+        numarTelefon: "",
+        locatiaFrizeriei: "",
+        oras: "",
+        judet: "",
+      });
+    } else {
+      alert("Eroare la trimitere");
+    }
+  } catch (error) {
+    console.error("Submit error:", error);
+    alert("A apărut o eroare");
   }
 };
+
 
   const counties = [
     'Alba', 'Arad', 'Argeș', 'Bacău', 'Bihor', 'Bistrița-Năsăud', 'Botoșani', 'Brașov',
