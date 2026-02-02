@@ -29,28 +29,29 @@ const JoinForm = () => {
   });
 
 const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
-  
-  // Use the URL from your "Deploy" step
-  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzRTL-WfAt0gbfjNOiK9F3vgAgVP1QjdPjkx6auPOc_Lm-1b-YZasScJLo9A-srgcb_Gg/exec";
-  
-  try {
-    // e.currentTarget is the form element
+    e.preventDefault();
+    setLoading(true);
+
+    const scriptUrl = "https://script.google.com/macros/s/AKfycbzRTL-WfAt0gbfjNOiK9F3vgAgVP1QjdPjkx6auPOc_Lm-1b-YZasScJLo9A-srgcb_Gg/exec"; 
     const formData = new FormData(e.currentTarget);
 
-    await fetch(SCRIPT_URL, {
-      method: "POST",
-      body: formData,
-      mode: "no-cors", // This prevents CORS errors with Apps Script
-    });
-
-    // Note: with "no-cors", you won't be able to read the JSON response, 
-    // but the data WILL successfully write to the sheet.
-    alert("Form submitted!");
-  } catch (err) {
-    console.error("Error!", err);
-  }
-};
+    try {
+      // We use a simple POST. 
+      // Note: If you face CORS issues, use 'mode: "no-cors"'
+      await fetch(scriptUrl, {
+        method: 'POST',
+        body: formData,
+      });
+      
+      alert("Datele au fost trimise cu succes!");
+      (e.target as HTMLFormElement).reset();
+    } catch (error) {
+      console.error("Error:", error);
+      alert("A apărut o eroare la trimitere.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const judet = [
     'Alba', 'Arad', 'Argeș', 'Bacău', 'Bihor', 'Bistrița-Năsăud', 'Botoșani', 'Brașov',
